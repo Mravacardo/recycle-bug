@@ -11,7 +11,7 @@ CENTRE_Y = HEIGHT/2
 CENTRE = (CENTRE_X,CENTRE_Y)
 FINAL_LEVEL = 6
 START_SPEED = 10
-ITEMS = ["battery","bottle","crisps"]
+ITEMS = ["leopard","lion","tiger"]
 
 game_over = False
 game_complete = False
@@ -22,7 +22,7 @@ animations = []
 def draw():
     global items, current_level, game_over, game_complete
     screen.clear()
-    screen.blit("recycling bg",(0,0))
+    screen.blit("junglebg",(0,0))
 
     if game_over:
              display_message ("Game Over, Try Again!","")
@@ -46,7 +46,7 @@ def make_items(number_of_extra_items):
 
 
 def get_option_to_create(number_of_extra_items):
-    items_to_create = ["bag"]
+    items_to_create = ["cat"]
     for i in range(0, number_of_extra_items):
         random_option = random.choice(ITEMS)
         items_to_create.append(random_option)
@@ -83,7 +83,7 @@ def on_mouse_down(pos):
     global items, current_level
     for item in items:
         if item.collidepoint(pos):
-           if "bag" in item.image:
+           if "cat" in item.image:
               handle_game_complete()
            else:
               handle_game_over()
@@ -104,7 +104,7 @@ def stop_animations(animations_to_stop):
              animation.stop()
 
 def display_message(heading_text, sub_heading_text):
-    screen.draw.text(heading_text, fontsize=60, center=CENTRE, color="black")
-    screen.draw.text(sub_heading_text, fontsize=30, center=(CENTRE_X, CENTRE_Y +30), color="black")
+    screen.draw.text(heading_text, fontsize=60, center=CENTRE, color="blue")
+    screen.draw.text(sub_heading_text, fontsize=30, center=(CENTRE_X, CENTRE_Y +30), color="blue")
 
 pgzrun.go()
